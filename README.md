@@ -10,9 +10,7 @@ It's also a way for me to document my setup and be able to recreate it if needed
 
 ## Schematics
 
-To be done
-
----
+![Schematics](./imgs/Homelab.drawio.svg)
 
 # Vue d'ensemble
 
