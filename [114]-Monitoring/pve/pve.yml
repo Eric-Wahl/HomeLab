@@ -1,0 +1,5 @@
+default:
+  user: @pam
+  token_name: "exporter"
+  token_value: ""
+  verify_ssl: false/true

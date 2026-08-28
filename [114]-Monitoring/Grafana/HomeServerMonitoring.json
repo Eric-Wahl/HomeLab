@@ -17410,6 +17410,103 @@
         }
       }
     },
+    "panel-323": {
+      "kind": "Panel",
+      "spec": {
+        "data": {
+          "kind": "QueryGroup",
+          "spec": {
+            "queries": [
+              {
+                "kind": "PanelQuery",
+                "spec": {
+                  "hidden": false,
+                  "query": {
+                    "datasource": {
+                      "name": "${datasource}"
+                    },
+                    "group": "prometheus",
+                    "kind": "DataQuery",
+                    "spec": {
+                      "editorMode": "code",
+                      "exemplar": false,
+                      "expr": "node_memory_MemTotal_bytes{instance=\"$node\",job=\"$job\"}",
+                      "instant": true,
+                      "intervalFactor": 1,
+                      "range": false,
+                      "step": 240
+                    },
+                    "version": "v0"
+                  },
+                  "refId": "A"
+                }
+              }
+            ],
+            "queryOptions": {
+              "maxDataPoints": 100
+            },
+            "transformations": []
+          }
+        },
+        "description": "Total RAM",
+        "id": 323,
+        "links": [],
+        "title": "RAM Total",
+        "vizConfig": {
+          "group": "stat",
+          "kind": "VizConfig",
+          "spec": {
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "fixedColor": "#ad46ff",
+                  "mode": "thresholds"
+                },
+                "decimals": 0,
+                "mappings": [
+                  {
+                    "options": {
+                      "match": "null",
+                      "result": {
+                        "text": "N/A"
+                      }
+                    },
+                    "type": "special"
+                  }
+                ],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": 0
+                    }
+                  ]
+                },
+                "unit": "bytes"
+              },
+              "overrides": []
+            },
+            "options": {
+              "colorMode": "background",
+              "graphMode": "none",
+              "justifyMode": "auto",
+              "orientation": "auto",
+              "percentChangeColorMode": "standard",
+              "reduceOptions": {
+                "calcs": ["lastNotNull"],
+                "fields": "",
+                "values": false
+              },
+              "showPercentChange": false,
+              "textMode": "auto",
+              "wideLayout": true
+            }
+          },
+          "version": "13.1.3"
+        }
+      }
+    },
     "panel-33": {
       "kind": "Panel",
       "spec": {
@@ -22976,9 +23073,10 @@
                     "spec": {
                       "editorMode": "code",
                       "exemplar": false,
-                      "expr": "node_memory_MemTotal_bytes{instance=\"$node\",job=\"$job\"}",
+                      "expr": "label_replace(smart_reallocated_sectors{}, \"disk\", \"$1\", \"instance\", \"ata-WDC_WD40EFRX-[0-9A-Z]+_(.*)\")",
                       "instant": true,
                       "intervalFactor": 1,
+                      "legendFormat": "{{disk}}",
                       "range": false,
                       "step": 240
                     },
@@ -22997,7 +23095,7 @@
         "description": "Total RAM",
         "id": 75,
         "links": [],
-        "title": "RAM Total",
+        "title": "S.M.A.R.T Reallocated Sector",
         "vizConfig": {
           "group": "stat",
           "kind": "VizConfig",
@@ -23020,24 +23118,29 @@
                     "type": "special"
                   }
                 ],
+                "min": 0,
                 "thresholds": {
                   "mode": "absolute",
                   "steps": [
                     {
                       "color": "green",
                       "value": 0
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 1
                     }
                   ]
                 },
-                "unit": "bytes"
+                "unit": "none"
               },
               "overrides": []
             },
             "options": {
-              "colorMode": "background",
+              "colorMode": "value",
               "graphMode": "none",
               "justifyMode": "auto",
-              "orientation": "auto",
+              "orientation": "horizontal",
               "percentChangeColorMode": "standard",
               "reduceOptions": {
                 "calcs": ["lastNotNull"],
@@ -25362,21 +25465,8 @@
                         "name": "panel-15"
                       },
                       "height": 4,
-                      "width": 3,
+                      "width": 5,
                       "x": 0,
-                      "y": 0
-                    }
-                  },
-                  {
-                    "kind": "GridLayoutItem",
-                    "spec": {
-                      "element": {
-                        "kind": "ElementReference",
-                        "name": "panel-20"
-                      },
-                      "height": 4,
-                      "width": 3,
-                      "x": 3,
                       "y": 0
                     }
                   },
@@ -25388,8 +25478,21 @@
                         "name": "panel-155"
                       },
                       "height": 4,
-                      "width": 3,
-                      "x": 6,
+                      "width": 4,
+                      "x": 5,
+                      "y": 0
+                    }
+                  },
+                  {
+                    "kind": "GridLayoutItem",
+                    "spec": {
+                      "element": {
+                        "kind": "ElementReference",
+                        "name": "panel-20"
+                      },
+                      "height": 4,
+                      "width": 4,
+                      "x": 9,
                       "y": 0
                     }
                   },
@@ -25401,8 +25504,8 @@
                         "name": "panel-16"
                       },
                       "height": 4,
-                      "width": 3,
-                      "x": 9,
+                      "width": 4,
+                      "x": 13,
                       "y": 0
                     }
                   },
@@ -25414,8 +25517,8 @@
                         "name": "panel-154"
                       },
                       "height": 4,
-                      "width": 6,
-                      "x": 12,
+                      "width": 7,
+                      "x": 17,
                       "y": 0
                     }
                   },
@@ -25427,9 +25530,9 @@
                         "name": "panel-14"
                       },
                       "height": 4,
-                      "width": 3,
-                      "x": 18,
-                      "y": 0
+                      "width": 8,
+                      "x": 0,
+                      "y": 4
                     }
                   },
                   {
@@ -25440,9 +25543,22 @@
                         "name": "panel-75"
                       },
                       "height": 4,
-                      "width": 3,
-                      "x": 21,
-                      "y": 0
+                      "width": 9,
+                      "x": 8,
+                      "y": 4
+                    }
+                  },
+                  {
+                    "kind": "GridLayoutItem",
+                    "spec": {
+                      "element": {
+                        "kind": "ElementReference",
+                        "name": "panel-323"
+                      },
+                      "height": 4,
+                      "width": 7,
+                      "x": 17,
+                      "y": 4
                     }
                   }
                 ]
