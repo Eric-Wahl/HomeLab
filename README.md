@@ -132,12 +132,12 @@ Redirect URIs par service :
 ### HomeLab - NAS
 
 - **Server**: Home made NAS
+- **CPU**: I5 12400
 - **Case**: Jonsbo N4
 - **HBA**: LSI 9223 9200 9240-8i HBA FW:P20 9211-8i IT
 - **Disks**: WD40EFRX Red (3x4To)
 - **Power Supply**: be quiet! SFX Power 3 450 W, 80 Plus Bronze
 - **Motherboard**: MSI MAG B660M Mortar WiFi DDR4
-- **RAM**: Kingston 8GB PC4-2400T-UA2-11 (8x4)
-- **CPU**: I5 12400
+- **RAM**: 64GB PC4-2400T-UA2-11 (32x2GB)
 - **SSD (Storage)**: 2x Kingston ssd 256Gb
 - **CPU Cooler**: Noctua NH-L9x65
