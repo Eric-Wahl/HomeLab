@@ -8,7 +8,7 @@ It's also a way for me to document my setup and be able to recreate it if needed
 
 ## Schematics
 
-![Schematics](./imgs/Homelab.drawio.svg)
+![Schematics](./imgs/Homelab.jpg)
 
 ![Homelab](./imgs/homelab_photo.jpg)
 
