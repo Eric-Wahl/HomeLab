@@ -1,20 +1,20 @@
 # 💾 HomeLab Setup
 
-> Last update: 2026-08-16
+> Last update: 2026-09-19
 
-This repository contains the configuration for my home lab. It's running two Proxmox nodes VE 9.2.10.
+This repository contains the configuration for my home lab. It's running two Proxmox nodes VE 9.2.10 and a Raspberry Pi 5 as a QDevice.
 
 It's also a way for me to document my setup and be able to recreate it if needed, with all the helpfull commands and ressources (doc, videos) I used.
-
-![Homelab](./imgs/homelab.png)
 
 ## Schematics
 
 ![Schematics](./imgs/Homelab.drawio.svg)
 
+![Homelab](./imgs/homelab_photo.jpg)
+
 # Vue d'ensemble
 
-Cluster Proxmox : `HomeCluster` (pve-home + pve-nas)
+Cluster Proxmox : `HomeCluster` (pve-home + pve-nas + pi-edge)
 
 ## Convention de nommage
 
@@ -124,7 +124,7 @@ Redirect URIs par service :
 - **RAM**: 48GB DDR4 ECC
 - **Storage**: 1x 256GB SSD + 3x 1TB Samsung 860 EVO SSD
 - **Network**: 2.5Gbps NIC + 2x 1Gbps Ethernet
-- **Power**: 700W Platinum PSU
+- **Power Supply**: 700W Platinum PSU
 - **TDP**: 135W
 - **Idle Power**: 45W
 - **OS**: Proxmox VE 8.2.4
@@ -141,3 +141,11 @@ Redirect URIs par service :
 - **RAM**: 64GB PC4-2400T-UA2-11 (32x2GB)
 - **SSD (Storage)**: 2x Kingston ssd 256Gb
 - **CPU Cooler**: Noctua NH-L9x65
+
+### PiEdge
+
+- **Server**: Raspberry Pi 5
+- **CPU**: 4x Cortex-A76 @ 2.4GHz
+- **Case**: SunFounder Pironman 5
+- **Storage**: NVMe 256GB Crucial
+- **RAM**: 16GB LPDDR4X
