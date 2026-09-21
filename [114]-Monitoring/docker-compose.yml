@@ -20,6 +20,8 @@ services:
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
+    env_file:
+      - .env
     restart: unless-stopped
     volumes:
       - grafana-data:/var/lib/grafana
@@ -27,7 +29,7 @@ services:
       - proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.grafana.rule=Host(`grafana.ericwlab.xyz`)"
+      - "traefik.http.routers.grafana.rule=Host(`${GRAFANA_URL}`)"
       - "traefik.http.routers.grafana.entrypoints=websecure"
       - "traefik.http.routers.grafana.tls=true"
 
